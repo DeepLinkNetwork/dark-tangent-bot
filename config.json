@@ -3,6 +3,7 @@
  "id":"404953341622484995",
  "reconnect": "3600000",
  "botversion" : "1.0.0",
- "botCmds" : 4
+ "botCmds" : 4,
+ "general_chat_id" : "650308208304586784"
 }
   
