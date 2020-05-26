@@ -8,20 +8,20 @@ const { Client, Permissions } = require('discord.js');
 class DTbotCommand extends commando.Command {
     constructor(client){
         super(client, {
-            name: `ping`,
+            name: `dtping`,
             group: 'dtbotcmds',
-            memberName: 'ping',
+            memberName: 'dtping',
             description: "Will check bot oing status.",
-            examples: [ `${config.prefix}ping` ],
+            examples: [ `${config.prefix}dtping` ],
             clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['MANAGE_MESSAGES'],
         });
     }
 
     async run(message, args){
-        if (message.content.indexOf("ping") === 0) {
-            const msg = await message.channel.send('Ping?');
-            msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`);
+        if (message.content.indexOf("dtping") === 0) {
+            const msg = await message.channel.send('Pinging DT BOT Server.....');
+            msg.edit(`Wow! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`);
         }
     }
 }

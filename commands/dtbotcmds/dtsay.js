@@ -38,7 +38,7 @@ class DTbotCommand extends commando.Command {
         }
         
         message.delete().catch(function (O_o) {});
-        await sleep(800);
+        await sleep(500);
         message.channel.send(msg);
         return;
     }

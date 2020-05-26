@@ -20,11 +20,17 @@ class DTbotCommand extends commando.Command {
 
     async run(message, args){
         let dmGuild = message.guild;
-        let memberarray = dmGuild.members.array();
-        let membercount = memberarray.length;
-        if (message.content.indexOf("dtlist") === 0) {
-            await sleep(1000);
-            message.channel.send(`Hey ${message.author.username}, There are now **${membercount}** members in **${dmGuild.name}**.`);
+        if(dmGuild) {
+            let memberarray = dmGuild.members.array();
+            let membercount = memberarray.length;
+            if (message.content.indexOf("dtlist") === 0) {
+                await sleep(500);
+                message.channel.send(`Hey ${message.author.username}, There are now **${membercount}** members in **${dmGuild.name}**.`);
+            }
+        }
+        else {
+            await sleep(500);
+            message.channel.send(`Hey ${message.author.username}, Please run this command inside Server channel.`);
         }
     }
 }
