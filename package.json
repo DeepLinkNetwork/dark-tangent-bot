@@ -1,0 +1,29 @@
+{
+  "name": "dark-tangent-bot",
+  "version": "1.0.0",
+  "description": "This is DarkTangent Official Discord Bot.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js --harmony"
+  },
+  "author": "Deepender",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.3.1",
+    "discord.js": "^11.4.1",
+    "discord.js-commando": "^0.10.0",
+    "figlet": "^1.2.0",
+    "readline": "^1.3.0",
+    "dotenv": "^8.2.0",
+    "moment": "^2.19.1",
+    "moment-duration-format": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeepLinkNetwork/dark-tangent-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DeepLinkNetwork/dark-tangent-bot/issues"
+  },
+  "homepage": "https://github.com/DeepLinkNetwork/dark-tangent-bot#readme"
+}
