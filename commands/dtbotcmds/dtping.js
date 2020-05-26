@@ -11,7 +11,7 @@ class DTbotCommand extends commando.Command {
             name: `dtping`,
             group: 'dtbotcmds',
             memberName: 'dtping',
-            description: "Will check bot oing status.",
+            description: "Check bot ping Latency.",
             examples: [ `${config.prefix}dtping` ],
             clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['MANAGE_MESSAGES'],
