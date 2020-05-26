@@ -19,10 +19,8 @@ class DTbotCommand extends commando.Command {
     }
 
     async run(message, args){
-        if (message.content.indexOf("dtping") === 0) {
-            const msg = await message.channel.send('Pinging DT BOT Server.....');
-            msg.edit(`Wow! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`);
-        }
+        const msg = await message.channel.send('Pinging DT BOT Server.....');
+        msg.edit(`Wow! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`);
     }
 }
 

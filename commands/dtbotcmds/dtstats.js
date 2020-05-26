@@ -21,26 +21,24 @@ class DTbotCommand extends commando.Command {
     }
 
     async run(message, args,){
-        if (message.content.indexOf("dtstats") === 0) {
-            var time = Date.now();
-            const duration = moment.duration(this.client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
-            const embed = new Discord.RichEmbed()
-                .setColor('RED')
-                .setAuthor(this.client.user.username, this.client.user.displayAvatarURL)
-                .setTitle('BOT STATS')
-                .addField(`Memory Usage`, `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
-                .addField(`Uptime`, `${duration}`, true)
-                .addField(`Commands`, `${config.botCmds}`, true)
-                .addField(`Users`, `${this.client.users.filter(u => u.id !== '1').size.toLocaleString()}`, true)
-                .addField(`Servers`, `${this.client.guilds.size.toLocaleString()}`, true)
-                .addField(`Channels`, `${this.client.channels.size.toLocaleString()}`, true)
-                .addField(`Discord.js`, `v${version}`, true)
-                .addField(`Node`, `${process.version}`, true)
-                .addField(`Bot Version`, `${config.botversion}`, true)
-                .addField(`Bot Creator`, `Mr Deepender Choudhary AKA DeepCode`, true)
-                .setFooter(`Time taken: ${Date.now() - time}ms`);
-            message.channel.send({ embed });
-        }
+        var time = Date.now();
+        const duration = moment.duration(this.client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
+        const embed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setAuthor(this.client.user.username, this.client.user.displayAvatarURL)
+            .setTitle('BOT STATS')
+            .addField(`Memory Usage`, `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
+            .addField(`Uptime`, `${duration}`, true)
+            .addField(`Commands`, `${config.botCmds}`, true)
+            .addField(`Users`, `${this.client.users.filter(u => u.id !== '1').size.toLocaleString()}`, true)
+            .addField(`Servers`, `${this.client.guilds.size.toLocaleString()}`, true)
+            .addField(`Channels`, `${this.client.channels.size.toLocaleString()}`, true)
+            .addField(`Discord.js`, `v${version}`, true)
+            .addField(`Node`, `${process.version}`, true)
+            .addField(`Bot Version`, `${config.botversion}`, true)
+            .addField(`Bot Creator`, `Mr Deepender Choudhary AKA DeepCode`, true)
+            .setFooter(`Time taken: ${Date.now() - time}ms`);
+        message.channel.send({ embed });
     }
 }
 

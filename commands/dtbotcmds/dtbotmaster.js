@@ -19,13 +19,11 @@ class DTbotCommand extends commando.Command {
     }
 
     async run(message, args){
-        if (message.content.indexOf("dtbotmaster") === 0) {
-            await sleep(500);
-            const embed = new Discord.RichEmbed()
-            .addField(":eyes: My Master is my father too.", "His name is **Mr Deepender Choudhary** AkA @Deeקc๏ᖙe⚡")
-            .addField("His Discord ID", "**404953341622484995**");
-            message.channel.send({ embed: embed });
-        }
+        await sleep(500);
+        const embed = new Discord.RichEmbed()
+        .addField(":eyes: My Master is my father too.", "His name is **Mr Deepender Choudhary** AkA @Deeקc๏ᖙe⚡")
+        .addField("His Discord ID", "**404953341622484995**");
+        message.channel.send({ embed: embed });
     }
 }
 

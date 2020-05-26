@@ -23,10 +23,8 @@ class DTbotCommand extends commando.Command {
         if(dmGuild) {
             let memberarray = dmGuild.members.array();
             let membercount = memberarray.length;
-            if (message.content.indexOf("dtlist") === 0) {
-                await sleep(500);
-                message.channel.send(`Hey ${message.author.username}, There are now **${membercount}** members in **${dmGuild.name}**.`);
-            }
+            await sleep(500);
+            message.channel.send(`Hey ${message.author.username}, There are now **${membercount}** members in **${dmGuild.name}**.`);
         }
         else {
             await sleep(500);
