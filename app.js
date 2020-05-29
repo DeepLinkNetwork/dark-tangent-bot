@@ -106,16 +106,16 @@ setInterval(function() {
 bot.on('guildMemberAdd', member => {
     member.send(`**Hello ${member.user} Welcome To  DarkTangent Esports Server**               
 
-    ** :white_check_mark: Make sure you must Read <#650318943101124639> :100: 
-    
-    :white_check_mark: Also take Self Role From <#650319956424261632> :100: 
-    
-    :white_check_mark:  Use <#650308208304586784> to chat with us :100: **
-    
-    **:checkered_flag: Regards**
-    **:checkered_flag: DarkTangent Esports**
-    
-    **__:hash:DarkTangent Esports__:hash: Copyright :copyright: 2020. All Rights Reserved**`);
+** :white_check_mark: Make sure you must Read <#650318943101124639> :100: 
+
+:white_check_mark: Also take Self Role From <#650319956424261632> :100: 
+
+:white_check_mark:  Use <#650308208304586784> to chat with us :100: **
+
+**:checkered_flag: Regards**
+**:checkered_flag: DarkTangent Esports**
+
+**__:hash:DarkTangent Esports__:hash: Copyright :copyright: 2020. All Rights Reserved**`);
  });
 
 process.on('unhandledRejection', error => {
