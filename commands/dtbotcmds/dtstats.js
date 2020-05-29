@@ -36,7 +36,7 @@ class DTbotCommand extends commando.Command {
             .addField(`Discord.js`, `v${version}`, true)
             .addField(`Node`, `${process.version}`, true)
             .addField(`Bot Version`, `${config.botversion}`, true)
-            .addField(`Bot Creator`, `Mr Deepender Choudhary AKA DeepCode`, true)
+            .addField(`Bot Creator`, `Mr Deepender Choudhary AKA @Deeקc๏ᖙe:zap:`, true)
             .setFooter(`Time taken: ${Date.now() - time}ms`);
         message.channel.send({ embed });
     }
