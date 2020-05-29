@@ -103,9 +103,10 @@ setInterval(function() {
     bot.login(process.env.BOT_TOKEN || config.token);
 }, config.reconnect);
 
-bot.on('guildMemberAdd', member => {
-    member.send(`**Hello ${member.user} Welcome To  DarkTangent Esports Server**               
-
+bot.on('guildMemberAdd', function(member) {
+const addEmbed = new Discord.RichEmbed()  
+.setAuthor(`Hello @${member.user.username} DarkTangent Welcomes you.`, `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
+.setDescription(`
 **:white_check_mark: Make sure you must Read <#650318943101124639> :100: 
 
 :white_check_mark: Also take Self Role From <#650319956424261632> :100: 
@@ -113,10 +114,11 @@ bot.on('guildMemberAdd', member => {
 :white_check_mark:  Use <#650308208304586784> to chat with us :100: **
 
 **:checkered_flag: Regards**
-**:checkered_flag: DarkTangent Esports**
-
-**__:hash:DarkTangent Esports__:hash: Copyright :copyright: 2020. All Rights Reserved**`);
- });
+**:checkered_flag: DarkTangent Esports**`)
+.setTimestamp()
+.setFooter('From DarkTangent Team', 'https://www.risingcup.com/assets/images/dt_logo.png');
+member.send({ embed: addEmbed });
+});
 
 process.on('unhandledRejection', error => {
 	console.error('Unhandled promise rejection:', error);
