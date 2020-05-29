@@ -106,7 +106,7 @@ setInterval(function() {
 bot.on('guildMemberAdd', member => {
     member.send(`**Hello ${member.user} Welcome To  DarkTangent Esports Server**               
 
-** :white_check_mark: Make sure you must Read <#650318943101124639> :100: 
+**:white_check_mark: Make sure you must Read <#650318943101124639> :100: 
 
 :white_check_mark: Also take Self Role From <#650319956424261632> :100: 
 
