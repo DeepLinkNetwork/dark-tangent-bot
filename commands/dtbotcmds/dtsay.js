@@ -13,6 +13,7 @@ class DTbotCommand extends commando.Command {
             memberName: 'dtsay',
             description: "Send a message to a channel through the bot.",
             examples: [ `${config.prefix}dtsay Hello this msg will get repeated.` ],
+            guildOnly: true,
             clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR']
         });
