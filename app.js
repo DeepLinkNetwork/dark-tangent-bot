@@ -65,7 +65,7 @@ bot.on('message', function(message) {
     }
 
     //Restricted Keywords
-    let keywords = ['id','pass','need','players'];
+    let keywords = [' id',' pass','i need','we need','we need player'];
     for (let index = 0; index < keywords.length; index++) {
         const element = new RegExp(keywords[index],'img');
         let closeLoop = false;
@@ -77,13 +77,16 @@ bot.on('message', function(message) {
                 //console.log(`Found slag key match, group ${groupIndex}: ${match}`);
                 if(message.channel.id == config.general_chat_id) 
                 {
-                    if (message) message.delete();
                     const embed = new Discord.RichEmbed()  
                     .setAuthor(`${message.author.username} has been warned`, message.author.avatarURL)
-                    .setDescription(`**Reason:** Keywords such as **id**, **pass**, **need**, **player** is restricted in public_chat, post such message in  ☛  <#650316706194915370>`)
-                    .setTimestamp()
-                    .setFooter('From DarkTangent Team', 'https://www.risingcup.com/assets/images/dt_logo.png');
-                    message.channel.send({ embed: embed });
+                    .setDescription(`**Reason:** Please post such message in  ☛  <#650316706194915370>`)
+                    .addField(`Original Message:`, `${message.content}`, false);
+                    if((config.admins).includes(message.author.id)) {
+                        message.author.send(`Hey ${message.author.username}, I cannot warn you because you are DT **ADMIN** or **MODS**, Please Delete that message if it violates terms of public chat.\n__Your Message__ => ${message.content}`);
+                    } else {
+                        if (message) message.delete();
+                        message.channel.send({ embed: embed });
+                    }
                     return true;
                 }
             });
