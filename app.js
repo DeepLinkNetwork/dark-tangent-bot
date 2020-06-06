@@ -79,8 +79,7 @@ bot.on('message', function(message) {
                 {
                     const embed = new Discord.RichEmbed()  
                     .setAuthor(`${message.author.username} has been warned`, message.author.avatarURL)
-                    .setDescription(`**Reason:** Please post such message in  ☛  <#650316706194915370>`)
-                    .addField(`Original Message:`, `${message.content}`, false);
+                    .setDescription(`**Reason:** Please post such message in  ☛  <#650316706194915370>`);
                     if((config.admins).includes(message.author.id)) {
                         message.author.send(`Hey ${message.author.username}, I cannot warn you because you are DT **ADMIN** or **MODS**, Please Delete that message if it violates terms of public chat.\n__Your Message__ => ${message.content}`);
                     } else {
