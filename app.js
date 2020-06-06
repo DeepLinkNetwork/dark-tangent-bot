@@ -106,6 +106,17 @@ setInterval(function() {
     bot.login(process.env.BOT_TOKEN || config.token);
 }, config.reconnect);
 
+bot.on('guildMemberUpdate', (oldMember, newMember) => {
+    let arr1 = newMember._roles;
+    let arr2 = oldMember._roles;
+    let newDiff = arr1.filter(x => !arr2.includes(x));
+
+    if(newDiff ==  config.alliesrole){
+        newMember.send(`Hey ${newMember.user.username}, **Alliance-Watcher** role is added to you, Please **re-login** your account to see <#703970053951062066> channel past message history.`);
+    }
+});
+
+
 bot.on('guildMemberAdd', function(member) {
 const addEmbed = new Discord.RichEmbed()  
 .setAuthor(`Hello @${member.user.username} DarkTangent Welcomes you.`, `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
@@ -124,7 +135,7 @@ member.send({ embed: addEmbed });
 });
 
 process.on('unhandledRejection', error => {
-	console.error('Unhandled promise rejection:', error);
+    console.error('Unhandled promise rejection:', error);
 });
 
 bot.registry.registerGroup('dtbotcmds', 'help');
