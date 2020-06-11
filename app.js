@@ -21,10 +21,9 @@ bot.on('ready', () => {
 	clear();
 	console.log(`Logged in as ${bot.user.tag}! (${bot.user.id})`);
 	console.log('_________________________________________');
-	bot.user.setActivity('For DarkTangent', { url: 'https://github.com/DeepLinkNetwork/dark-tangent-bot', type: 'Watching' })
-		.then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+	bot.user.setPresence({ activity: { name: 'DarkTangent Server', type: 'WATCHING', url:'https://discord.gg/kNKK5zG' }, status: 'dnd' })
+		.then(console.log('Activity Set Successfully!'))
 		.catch(console.error);
-
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -70,7 +69,7 @@ bot.on('message', function(message) {
 	}
 
 	// Restricted Keywords
-	const keywords = [' id', ' pass', 'i need', 'we need', 'we need player'];
+	const keywords = [' id', ' pass', 'i need', 'we need', 'need', 'we need player'];
 	for (let index = 0; index < keywords.length; index++) {
 		const element = new RegExp(keywords[index], 'img');
 		let closeLoop = false;
@@ -79,12 +78,12 @@ bot.on('message', function(message) {
 				element.lastIndex++;
 			}
 			// eslint-disable-next-line no-unused-vars
-			const r2 = m.some(function(_match, _groupIndex) {
+			const r2 = m.some(function(match, _groupIndex) {
 				// console.log(`Found slag key match, group ${groupIndex}: ${match}`);
 				if(message.channel.id == config.general_chat_id) {
 					const embed = new Discord.MessageEmbed()
 						.setAuthor(`${message.author.username} has been warned`, message.author.avatarURL)
-						.setDescription('**Reason:** Please post such message in  ☛  <#650316706194915370>');
+						.setDescription(`**Reason:** We detected **__${match}__** in your message. Please post such message in  ☛  <#650316706194915370>`);
 					if((config.admins).includes(message.author.id)) {
 						message.author.send(`Hey ${message.author.username}, I cannot warn you because you are DT **ADMIN** or **MODS**, Please Delete that message if it violates terms of public chat.\n__Your Message__ => ${message.content}`);
 					}
