@@ -14,7 +14,7 @@ class DTbotCommand extends commando.Command {
 			description: 'Gives some useful bot statistics',
 			throttling: {
 				usages: 1,
-				duration: 20,
+				duration: 50,
 			},
 			examples: [ `${config.prefix}dtstats` ],
 			clientPermissions: ['ADMINISTRATOR'],

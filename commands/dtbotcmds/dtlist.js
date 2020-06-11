@@ -13,8 +13,8 @@ class DTbotCommand extends commando.Command {
 			clientPermissions: ['ADMINISTRATOR'],
 			userPermissions: ['MANAGE_MESSAGES'],
 			throttling: {
-				usages: 2,
-				duration: 10,
+				usages: 1,
+				duration: 30,
 			},
 		});
 	}

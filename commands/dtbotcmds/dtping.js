@@ -11,6 +11,10 @@ class DTbotCommand extends commando.Command {
 			examples: [ `${config.prefix}dtping` ],
 			clientPermissions: ['ADMINISTRATOR'],
 			userPermissions: ['MANAGE_MESSAGES'],
+			throttling: {
+				usages: 1,
+				duration: 30,
+			},
 		});
 	}
 
