@@ -89,7 +89,7 @@ bot.registry
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands({
-		help: true,
+		help: false,
 		prefix: false,
 		eval: false,
 		ping: true,

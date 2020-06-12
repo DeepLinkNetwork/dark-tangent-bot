@@ -26,6 +26,7 @@ class DTbotCommand extends commando.Command {
 	async run(message, _args) {
 		const time = Date.now();
 		const duration = moment.duration(this.client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
+		const memberCounts = this.client.guilds.cache.get(config.serverId).memberCount;
 		const embed = new Discord.MessageEmbed()
 			.setColor('RED')
 			.setAuthor(this.client.user.username, this.client.user.displayAvatarURL)
@@ -33,7 +34,7 @@ class DTbotCommand extends commando.Command {
 			.addField('Memory Usage', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
 			.addField('Uptime', `${duration}`, true)
 			.addField('Commands', `${config.botCmds}`, true)
-			.addField('Users', `${this.client.users.cache.filter(u => u.id !== '1').size.toLocaleString()}`, true)
+			.addField('Users', `${memberCounts.toLocaleString()}`, true)
 			.addField('Servers', `${this.client.guilds.cache.size.toLocaleString()}`, true)
 			.addField('Channels', `${this.client.channels.cache.size.toLocaleString()}`, true)
 			.addField('Discord.js', `v${version}`, true)
