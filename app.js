@@ -53,10 +53,10 @@ bot.on('shardDisconnect', (event, _shardID) => {
 });
 
 // relogin in an hour.
-setInterval(function() {
-	// console.log(`Started Relogin to server per timeout of ${config.reconnect} ms.`);
-	bot.login(process.env.BOT_TOKEN || config.token);
-}, config.reconnect);
+// setInterval(function() {
+// 	// console.log(`Started Relogin to server per timeout of ${config.reconnect} ms.`);
+// 	bot.login(process.env.BOT_TOKEN || config.token);
+// }, config.reconnect);
 
 // starting bot ping on console logging
 // setInterval(function() {

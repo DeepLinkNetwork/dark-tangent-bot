@@ -14,16 +14,19 @@ module.exports = {
 
 :100: Take Self Role ☛ <#650319956424261632>
 
-:100: Chat Zone ☛ <#650308208304586784>**
+:100: Chat Zone ☛ <#723667814543654913>
 
-─────────────────────────────
-**__DarkTangent Esports Server Benefit__**`)
+:100: Find Players ☛ <#650316706194915370>
+
+:100: GFX Media ☛ <#650314088500428887>
+
+:100: YT Links ☛ <#653277636470112272>**
+
+─────────────────────────────`)
 			.setThumbnail(`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
-			.addFields(
-				{ name: 'DT RISING CUP TOURNAMENTS', value: 'PRICE POOLS IN YEAR RS-10,00,000 INR', inline: true },
-				{ name: 'Daily PUBGM Scrims', value: 'GET A CHANCE TO JOIN ELITE TEAMS.', inline: true },
-			)
-			.addField('DT RISING CUP WEBSITE', 'https://www.risingcup.com', false)
+			.addField('FOLLOW DARKTANGENT RISING CUP', 'https://www.risingcup.com', false)
+			.addField('FOLLOW DARKTANGENT ON YOUTUBE', 'https://bit.ly/3dj253Q', false)
+			.addField('FOLLOW DARKTANGENT ON INSTAGRAM', 'https://www.instagram.com/darktangent.gg/', false)
 			.setImage('https://cdn.discordapp.com/attachments/678230114491957249/721095572584398858/DarkTangentWelcome.gif')
 			.setTimestamp()
 			.setFooter('From DarkTangent Team', 'https://www.risingcup.com/assets/images/dt_logo.png');
