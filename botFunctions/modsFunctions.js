@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	guildMemberAddFunc: function(member) {
+		// const memberCounts = member.guild.memberCount;
 		const addEmbed = new Discord.MessageEmbed()
 			.setColor('#12ffdf')
 			.setTitle(`@${member.user.username}#${member.user.discriminator}`)
@@ -24,9 +25,12 @@ module.exports = {
 
 ─────────────────────────────`)
 			.setThumbnail(`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
+			.addField('FOLLOW DARKTANGENT WEBSITE', 'https://darktangent.gg', false)
 			.addField('FOLLOW DARKTANGENT RISING CUP', 'https://www.risingcup.com', false)
-			.addField('FOLLOW DARKTANGENT ON YOUTUBE', 'https://bit.ly/3dj253Q', false)
+			.addField('FOLLOW DARKTANGENT ON YOUTUBE', 'https://darktangent.gg/yt', false)
 			.addField('FOLLOW DARKTANGENT ON INSTAGRAM', 'https://www.instagram.com/darktangent.gg/', false)
+			.addField('FOLLOW DARKTANGENT ON TWITTER', 'https://twitter.com/DarkTangent_gg', false)
+			.addField('FOLLOW DARKTANGENT ON FACEBOOK', 'https://www.facebook.com/DarkTangent.gg', false)
 			.setImage('https://cdn.discordapp.com/attachments/678230114491957249/721095572584398858/DarkTangentWelcome.gif')
 			.setTimestamp()
 			.setFooter('From DarkTangent Team', 'https://www.risingcup.com/assets/images/dt_logo.png');
