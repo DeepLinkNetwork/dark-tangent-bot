@@ -18,7 +18,7 @@ class DTbotCommand extends commando.Command {
 			},
 			examples: [ `${config.prefix}dtstats` ],
 			clientPermissions: ['ADMINISTRATOR'],
-			userPermissions: ['MANAGE_MESSAGES'],
+			userPermissions: ['EMBED_LINKS'],
 		});
 	}
 

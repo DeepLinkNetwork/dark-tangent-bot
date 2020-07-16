@@ -23,8 +23,7 @@ class DTbotCommand extends commando.Command {
 	async run(message, _args) {
 		const dmGuild = message.guild;
 		if(dmGuild) {
-			const memberarray = dmGuild.members.cache.array();
-			const membercount = memberarray.length;
+			const membercount = this.client.guilds.cache.get(config.serverId).memberCount;
 			await sleep(500);
 			message.channel.send(`Hey ${message.author.username}, There are now **${membercount}** members in **${dmGuild.name}**.`);
 		}
