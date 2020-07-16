@@ -72,7 +72,7 @@ module.exports = {
 		let m;
 		const str = message.content;
 		// Restricted Keywords
-		const keywords = [' id', ' pass', 'i need', 'we need', 'need', 'we need player'];
+		const keywords = [' id ', ' pass', 'i need', 'we need', 'need', 'we need player', 'Team requirements', 'We are looking'];
 		for (let index = 0; index < keywords.length; index++) {
 			const element = new RegExp(keywords[index], 'img');
 			let closeLoop = false;
