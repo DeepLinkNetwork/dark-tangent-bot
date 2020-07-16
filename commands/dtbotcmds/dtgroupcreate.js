@@ -23,7 +23,7 @@ class DTbotCommand extends commando.Command {
 
 	// eslint-disable-next-line no-unused-vars
 	async run(message, _args) {
-		message.channel.send('**Enter Your Password.**');
+		message.channel.send('Enter Authorization **code**');
 
 		const filter = m => {
 			return m.author.id === message.author.id;
@@ -39,16 +39,14 @@ class DTbotCommand extends commando.Command {
 							'X-access-key': 'pzsi6M0Gjk',
 						},
 					});
-					// eslint-disable-next-line no-unused-vars
-					message.delete().catch(function(O_o) { console.log(O_o); });
-					message.channel.send('**Cmd Executed Successfully ,Output will be logged in <#733243937736753192> !**');
+					message.channel.send('Events Group Assigned, **Output will be logged in <#733243937736753192>**');
 				}
 				else {
-					message.channel.send('**Ohh Dear Invalid Password !**');
+					message.channel.send('Ohh Dear Invalid Password!');
 				}
 			})
 			.catch(collected => {
-				message.channel.send(`**__Connection Timed out.__ => Collected ${collected.size} items**`);
+				message.channel.send(`**__Connection Timed out.__ =>** Collected ${collected.size} items`);
 			});
 	}
 }
