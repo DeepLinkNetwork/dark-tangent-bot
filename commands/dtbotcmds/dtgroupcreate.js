@@ -32,7 +32,7 @@ class DTbotCommand extends commando.Command {
 		message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
 			.then(collected => {
 				const content = collected.first().content;
-				if((content).trim() == 'deep@dev') {
+				if((content).trim() == '||deep#dev||') {
 					axios.post('https://risingcup.com/createGroupHook', { 'body':'allow' }, {
 						headers: {
 							'Content-Type': 'application/json',
