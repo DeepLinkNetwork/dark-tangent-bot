@@ -2,6 +2,7 @@
     "prefix":"dt?",
     "id":"404953341622484995",
     "serverId": "650308206060371989",
+    "welcomeChannelId": "650318881008648202",
     "reconnect": "3600000",
     "botversion" : "2.1.4",
     "botCmds" : 4,

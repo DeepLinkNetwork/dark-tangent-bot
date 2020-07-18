@@ -73,8 +73,11 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
 	}
 });
 
-bot.on('guildMemberAdd', (member) => {
+bot.on('guildMemberAdd', async function(member) {
 	modsFunctions.guildMemberAddFunc(member);
+	const channel = bot.channels.cache.get(config.welcomeChannelId);
+	await sleep(2000);
+	modsFunctions.sendWelcomeMessage(member, channel);
 });
 
 bot.on('message', function(message) {
@@ -110,4 +113,8 @@ function clear() {
 	console.clear();
 	console.log(figlet.textSync(`DarkTangent Bot v${config.botversion}`).green);
 	console.log(`>Type  ${process.env.PREFIX || config.prefix}help  in a chat.\n\n`);
+}
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }

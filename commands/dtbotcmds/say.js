@@ -5,11 +5,11 @@ const Discord = require('discord.js');
 class DTbotCommand extends commando.Command {
 	constructor(client) {
 		super(client, {
-			name: 'dtsay',
+			name: 'say',
 			group: 'dtbotcmds',
-			memberName: 'dtsay',
+			memberName: 'say',
 			description: 'Send a message to a channel through the bot.',
-			examples: [ `${config.prefix}dtsay Hello this msg will get repeated.` ],
+			examples: [ `${config.prefix}say Hello this msg will get repeated.` ],
 			guildOnly: true,
 			clientPermissions: ['ADMINISTRATOR'],
 			userPermissions: ['ADMINISTRATOR'],
@@ -21,7 +21,7 @@ class DTbotCommand extends commando.Command {
 		let msg = message.content;
 
 		try {
-			msg = msg.substring(msg.indexOf('dtsay') + 5);
+			msg = msg.substring(msg.indexOf('say') + 3);
 		}
 		catch(error) {
 			console.log(error);

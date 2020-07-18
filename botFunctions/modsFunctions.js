@@ -36,6 +36,34 @@ module.exports = {
 			.setFooter('From DarkTangent Team', 'https://www.risingcup.com/assets/images/dt_logo.png');
 		member.send({ embed: addEmbed });
 	},
+	sendWelcomeMessage: function(member, channel) {
+		// const memberCounts = member.guild.memberCount;
+		const addEmbed = new Discord.MessageEmbed()
+			.setColor('#12ffdf')
+			.setTitle(`@${member.user.username}#${member.user.discriminator}`)
+			.setAuthor('Welcome to DarkTangent Esports', 'https://cdn.discordapp.com/attachments/678230114491957249/717717389776519178/darktangent.gif')
+			.setDescription(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**:snowflake: Server Rules :point_right: <#650318943101124639> 
+
+:snowflake: Take Self Role :point_right: <#650319956424261632>
+
+:snowflake: Chat Zone :point_right: <#723667814543654913>
+
+:snowflake: Find Players :point_right: <#650316706194915370>
+
+:snowflake: GFX Media :point_right: <#650314088500428887>
+
+:snowflake: YT Links :point_right: <#653277636470112272>**
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+			.setThumbnail(`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
+			.setImage('https://cdn.discordapp.com/attachments/678230114491957249/721095572584398858/DarkTangentWelcome.gif')
+			.setTimestamp()
+			.setFooter('Enjoy your stay here!', 'https://www.risingcup.com/assets/images/dt_logo.png');
+		channel.send({ embed: addEmbed });
+	},
 	generalChatRestrict_buyer: function(message) {
 		let m;
 		const regex = /buyer/img;
