@@ -13,7 +13,7 @@ class DTbotCommand extends commando.Command {
 				usages: 1,
 				duration: 30,
 			},
-			examples: [ `${config.prefix}members` ],
+			examples: [ `${config.prefix}dtmembers` ],
 			guildOnly: true,
 			clientPermissions: ['ADMINISTRATOR'],
 			userPermissions: ['KICK_MEMBERS'],
