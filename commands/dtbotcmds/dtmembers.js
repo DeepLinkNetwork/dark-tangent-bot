@@ -16,7 +16,7 @@ class DTbotCommand extends commando.Command {
 			examples: [ `${config.prefix}members` ],
 			guildOnly: true,
 			clientPermissions: ['ADMINISTRATOR'],
-			userPermissions: ['MANAGE_MESSAGES'],
+			userPermissions: ['KICK_MEMBERS'],
 		});
 	}
 
