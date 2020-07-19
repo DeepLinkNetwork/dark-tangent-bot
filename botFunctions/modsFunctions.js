@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	guildMemberAddFunc: function(member) {
+		const avatarUrl = (member.user.avatar) ? `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}` : 'https://www.risingcup.com/assets/images/dt_defaultUser.png';
 		// const memberCounts = member.guild.memberCount;
 		const addEmbed = new Discord.MessageEmbed()
 			.setColor('#12ffdf')
@@ -24,7 +25,7 @@ module.exports = {
 :100: YT Links ☛ <#653277636470112272>**
 
 ─────────────────────────────`)
-			.setThumbnail(`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
+			.setThumbnail(`${avatarUrl}`)
 			.addField('FOLLOW DARKTANGENT WEBSITE', 'https://darktangent.gg', false)
 			.addField('FOLLOW DARKTANGENT RISING CUP', 'https://www.risingcup.com', false)
 			.addField('FOLLOW DARKTANGENT ON YOUTUBE', 'https://darktangent.gg/yt', false)
@@ -37,6 +38,7 @@ module.exports = {
 		member.send({ embed: addEmbed });
 	},
 	sendWelcomeMessage: function(member, channel) {
+		const avatarUrl = (member.user.avatar) ? `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}` : 'https://www.risingcup.com/assets/images/dt_defaultUser.png';
 		// const memberCounts = member.guild.memberCount;
 		const addEmbed = new Discord.MessageEmbed()
 			.setColor('#12ffdf')
@@ -58,7 +60,7 @@ module.exports = {
 :snowflake: YT Links :point_right: <#653277636470112272>**
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
-			.setThumbnail(`https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}`)
+			.setThumbnail(`${avatarUrl}`)
 			.setImage('https://cdn.discordapp.com/attachments/678230114491957249/721095572584398858/DarkTangentWelcome.gif')
 			.setTimestamp()
 			.setFooter('Enjoy your stay here!', 'https://www.risingcup.com/assets/images/dt_logo.png');

@@ -1,21 +1,22 @@
 const commando = require('discord.js-commando');
 const config = require('../../config.json');
+const Discord = require('discord.js');
 
 class DTbotCommand extends commando.Command {
 	constructor(client) {
 		super(client, {
-			name: 'members',
+			name: 'dtmembers',
 			group: 'dtbotcmds',
-			memberName: 'members',
-			guildOnly: true,
+			memberName: 'dtmembers',
 			description: 'Display Total Member List',
-			examples: [ `${config.prefix}members` ],
-			clientPermissions: ['ADMINISTRATOR'],
-			userPermissions: ['MANAGE_MESSAGES'],
 			throttling: {
 				usages: 1,
-				duration: 60,
+				duration: 30,
 			},
+			examples: [ `${config.prefix}members` ],
+			guildOnly: true,
+			clientPermissions: ['ADMINISTRATOR'],
+			userPermissions: ['MANAGE_MESSAGES'],
 		});
 	}
 
@@ -24,7 +25,7 @@ class DTbotCommand extends commando.Command {
 		let msg = message.content;
 		let replyMsg = '';
 		try {
-			msg = msg.substring(msg.indexOf('members') + 7);
+			msg = msg.substring(msg.indexOf('dtmembers') + 9);
 
 			if(msg.indexOf('<@&') != -1) {
 				msg = msg.substring(
@@ -42,13 +43,30 @@ class DTbotCommand extends commando.Command {
 				replyMsg = 'Currently there are **Zero Members** in <@&' + roleID + '> \n';
 			}
 			else {
+				let i = 0;
 				for (const item of membersWithRole.values()) {
-					replyMsg += '**>** ' + item.user.username + ' *~TAG~* <@' + item.user.id + '> \n';
+					replyMsg += '**>** ' + item.user.username + ' *---TAG-->* <@' + item.user.id + '> \n';
+					i++;
+					if(i == 90) {
+						break;
+					}
 				}
 			}
 		}
 		catch(err) {
-			replyMsg = 'Error Invalid Role !';
+			const embed = new Discord.MessageEmbed()
+				.setColor('#12ffdc')
+				.setTitle('Command: dt? dtmembers')
+				.setDescription(`
+**Description:** List members in a role(s) (max 90)
+**Cooldown:** 30 seconds
+**Usage:** dt? dtmembers [role]
+Example:
+?members Staff
+?members Staff, Updates
+?members Staff not Mod`);
+			message.channel.send({ embed: embed });
+			return;
 		}
 
 		// eslint-disable-next-line no-unused-vars
