@@ -45,9 +45,9 @@ class DTbotCommand extends commando.Command {
 			else {
 				let i = 0;
 				for (const item of membersWithRole.values()) {
-					replyMsg += '**>** ' + item.user.username + ' *---TAG-->* <@' + item.user.id + '> \n';
+					replyMsg += item.user.username + ' *-->* <@' + item.user.id + '> \n';
 					i++;
-					if(i == 90) {
+					if(i == 30) {
 						break;
 					}
 				}
@@ -58,7 +58,7 @@ class DTbotCommand extends commando.Command {
 				.setColor('#12ffdc')
 				.setTitle('Command: dt? dtmembers')
 				.setDescription(`
-**Description:** List members in a role(s) (max 90)
+**Description:** List members in a role(s) (max 30)
 **Cooldown:** 30 seconds
 **Usage:** dt? dtmembers [role]
 Example:
@@ -72,6 +72,9 @@ Example:
 		// eslint-disable-next-line no-unused-vars
 		message.delete().catch(function(O_o) { console.log(O_o); });
 		await sleep(500);
+		if(replyMsg.length > 2000) {
+			replyMsg = replyMsg.substring(0, 2000);
+		}
 		message.channel.send(replyMsg);
 		return;
 	}
