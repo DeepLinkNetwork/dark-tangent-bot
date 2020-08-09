@@ -12,7 +12,7 @@ class DTbotCommand extends commando.Command {
 			examples: [ `${config.prefix}say Hello this msg will get repeated.` ],
 			guildOnly: true,
 			clientPermissions: ['ADMINISTRATOR'],
-			userPermissions: ['ADMINISTRATOR'],
+			userPermissions: ['MANAGE_MESSAGES'],
 		});
 	}
 
