@@ -78,6 +78,21 @@ bot.on('guildMemberAdd', async function(member) {
 	const channel = bot.channels.cache.get(config.welcomeChannelId);
 	await sleep(2000);
 	modsFunctions.sendWelcomeMessage(member, channel);
+	await sleep(1000);
+	if(member.guild.id != config.serverId) {
+		return;
+	}
+	bot.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${member.guild.memberCount}`);
+});
+
+// code for stats  ᗫ₸・FAM ≋ totalFamChannedId
+
+bot.on('guildMemberRemove', async function(member) {
+	if(member.guild.id != config.serverId) {
+		return;
+	}
+	await sleep(500);
+	bot.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${member.guild.memberCount}`);
 });
 
 bot.on('message', function(message) {
