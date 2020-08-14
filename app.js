@@ -78,7 +78,7 @@ bot.on('guildMemberAdd', async function(member) {
 	const channel = bot.channels.cache.get(config.welcomeChannelId);
 	await sleep(2000);
 	modsFunctions.sendWelcomeMessage(member, channel);
-	await sleep(1000);
+	await sleep(3000);
 	if(member.guild.id != config.serverId) {
 		return;
 	}
