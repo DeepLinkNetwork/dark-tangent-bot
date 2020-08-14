@@ -79,10 +79,9 @@ bot.on('guildMemberAdd', async function(member) {
 	await sleep(2000);
 	modsFunctions.sendWelcomeMessage(member, channel);
 	await sleep(3000);
-	if(member.guild.id != config.serverId) {
-		return;
+	if(member.guild) {
+		bot.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${member.guild.memberCount}`);
 	}
-	bot.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${member.guild.memberCount}`);
 });
 
 // code for stats  ᗫ₸・FAM ≋ totalFamChannedId
