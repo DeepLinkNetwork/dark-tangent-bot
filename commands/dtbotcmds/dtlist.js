@@ -24,9 +24,11 @@ class DTbotCommand extends commando.Command {
 		const dmGuild = message.guild;
 		if(dmGuild) {
 			const membercount = this.client.guilds.cache.get(config.serverId).memberCount;
+			const guild = this.client.guilds.cache.get(config.serverId);
 			await sleep(500);
 			message.channel.send(`There are now **${membercount}** members in **${dmGuild.name}**.`);
-			message.guild.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${membercount}`);
+			await sleep(500);
+			guild.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${membercount}`);
 		}
 		else {
 			await sleep(500);
