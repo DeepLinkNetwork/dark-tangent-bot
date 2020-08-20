@@ -29,6 +29,7 @@ bot.on('ready', () => {
 	bot.user.setPresence({ activity: { name: 'DarkTangent Server', type: 'WATCHING', url:'https://discord.gg/kNKK5zG' }, status: 'dnd' })
 		.then(console.log('Activity Set Successfully!'))
 		.catch(console.error);
+	modsFunctions.updateInviteCache(bot);
 });
 
 bot.on('error', (error) => {
@@ -82,6 +83,8 @@ bot.on('guildMemberAdd', async function(member) {
 	if(member.guild) {
 		bot.channels.cache.get(config.totalFamChannedId).setName(`ᗫ₸・FAM ≋ ${member.guild.memberCount}`);
 	}
+	await sleep(500);
+	modsFunctions.guildMemberInviteLog(member, bot);
 });
 
 // code for stats  ᗫ₸・FAM ≋ totalFamChannedId

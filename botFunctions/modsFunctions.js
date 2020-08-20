@@ -1,5 +1,8 @@
 const config = require('../config.json');
 const Discord = require('discord.js');
+const invites = {};
+// A pretty useful method to create a delay without blocking the whole script.
+const wait = require('util').promisify(setTimeout);
 
 module.exports = {
 	guildMemberAddFunc: function(member) {
@@ -134,5 +137,49 @@ module.exports = {
 			}
 			if(closeLoop) {break;}
 		}
+	},
+	updateInviteCache: function(client) {
+		wait(1000);
+		client.guilds.cache.forEach(g => {
+			g.fetchInvites().then(guildInvites => {
+				invites[g.id] = guildInvites;
+			});
+		});
+	},
+	guildMemberInviteLog: function(member, client) {
+		const avatarUrl = (member.user.avatar) ? `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}` : 'https://www.risingcup.com/assets/images/dt_defaultUser.png';
+		const memberCounts = member.guild.memberCount;
+		member.guild.fetchInvites().then(guildInvites => {
+			const ei = invites[member.guild.id];
+			invites[member.guild.id] = guildInvites;
+
+			const logChannel = member.guild.channels.cache.find(channel => channel.id === config.inviteLogChannelId);
+			const d = new Date(member.joinedTimestamp);
+			const joinedTimestamp = d.getHours() + ' hours :' + d.getMinutes() + ' min, ' + d.toDateString();
+
+			try {
+				const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+				const inviter = client.users.cache.get(invite.inviter.id);
+				const addEmbed = new Discord.MessageEmbed()
+					.setColor('#12ffe9')
+					.setAuthor(`@${member.user.username}#${member.user.discriminator} Joined at ${memberCounts}`, `${avatarUrl}`)
+					.addField('Invite Code', `${invite.code}`, false)
+					.addField('Invite Uses', `${invite.uses}`, false)
+					.addField('Invited by', `${inviter.tag}`, false)
+					.addField('Joined Date', `${joinedTimestamp}`)
+					.addField('Account Created', `${member.user.createdAt}`, false)
+					.setTimestamp();
+				logChannel.send({ embed: addEmbed });
+			}
+			catch(error) {
+				const addEmbed = new Discord.MessageEmbed()
+					.setColor('#12ffe9')
+					.setAuthor(`@${member.user.username}#${member.user.discriminator} Joined at ${memberCounts}`, `${avatarUrl}`)
+					.addField('Joined Date', `${joinedTimestamp}`)
+					.addField('Account Created', `${member.user.createdAt}`, false)
+					.setTimestamp();
+				logChannel.send({ embed: addEmbed });
+			}
+		});
 	},
 };
