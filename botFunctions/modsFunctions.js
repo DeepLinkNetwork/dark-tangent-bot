@@ -154,9 +154,8 @@ module.exports = {
 			invites[member.guild.id] = guildInvites;
 
 			const logChannel = member.guild.channels.cache.find(channel => channel.id === config.inviteLogChannelId);
-			const d = new Date(member.joinedTimestamp);
-			const joinedTimestamp = d.getHours() + ' hours :' + d.getMinutes() + ' min, ' + d.toDateString();
-
+			const joinedTimestamp = new Date(member.joinedTimestamp).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+			const createdDate = new Date(member.user.createdAt).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
 			try {
 				const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
 				const inviter = client.users.cache.get(invite.inviter.id);
@@ -167,7 +166,7 @@ module.exports = {
 					.addField('Invite Uses', `${invite.uses}`, false)
 					.addField('Invited by', `${inviter.tag}`, false)
 					.addField('Joined Date', `${joinedTimestamp}`)
-					.addField('Account Created', `${member.user.createdAt}`, false)
+					.addField('Account Created', `${createdDate}`, false)
 					.setTimestamp();
 				logChannel.send({ embed: addEmbed });
 			}
