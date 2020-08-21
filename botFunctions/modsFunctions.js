@@ -162,21 +162,22 @@ module.exports = {
 				const addEmbed = new Discord.MessageEmbed()
 					.setColor('#12ffe9')
 					.setAuthor(`@${member.user.username}#${member.user.discriminator} Joined at ${memberCounts}`, `${avatarUrl}`)
+					.addField('Member tag', `<@${member.user.id}>`, false)
 					.addField('Invite Code', `${invite.code}`, false)
 					.addField('Invite Uses', `${invite.uses}`, false)
 					.addField('Invited by', `${inviter.tag}`, false)
 					.addField('Joined Date', `${joinedTimestamp}`)
-					.addField('Account Created', `${createdDate}`, false)
-					.setTimestamp();
+					.addField('Account Created', `${createdDate}`, false);
 				logChannel.send({ embed: addEmbed });
 			}
 			catch(error) {
 				const addEmbed = new Discord.MessageEmbed()
 					.setColor('#12ffe9')
 					.setAuthor(`@${member.user.username}#${member.user.discriminator} Joined at ${memberCounts}`, `${avatarUrl}`)
+					.addField('Member tag', `<@${member.user.id}>`, false)
 					.addField('Joined Date', `${joinedTimestamp}`)
-					.addField('Account Created', `${member.user.createdAt}`, false)
-					.setTimestamp();
+					.addField('Invited by', 'I can\'t figure out who invited.', false)
+					.addField('Account Created', `${createdDate}`, false);
 				logChannel.send({ embed: addEmbed });
 			}
 		});
